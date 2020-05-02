@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+
+<title>Crear un Técnico </title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs..."></script>
+<script src="https://maxcdn.bootstrapcdn.com/boots..."></script>
+
+<link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+ 
+</head>
+<body>
+
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Formulario de Técnico</h1>
+			<br />
+			<form action="#" th:action="@{/tecnico/addtecnico}" th:object="${tecnico}" method="post" onsubmit="return validar();">
+				
+				
+				  
+				  <input type="hidden" th:field="*{idTecnico}">
+				  
+
+				 
+				
+				
+				Usuario de Login: <input type="text" id="username" class="form-control" th:field="*{username}" th:value="${username}" required></input> 
+				<br/>
+				Contraseña: <input type="password" id="password" class="form-control" th:field="*{password}" th:value="${password}" required ></input> 
+				<br/>
+				Nombres: <input type="text" id="nombreTecnico" class="form-control" th:field="*{nombreTecnico}" th:value="${nombreTecnico}" required ></input> 
+				<br/>
+				Apellidos: <input type="text" id="apellidosTecnico" class="form-control" th:field="*{apellidosTecnico}" th:value="${apellidosTecnico}" required ></input> 
+				<br/>
+				Documento: <input type="text" id="docTecnico" class="form-control" th:field="*{docTecnico}" th:value="${docTecnico}" required ></input> 
+				<br/>
+		 		 Especialidad: 
+					 <select class="form-control" id="especialidad" th:field="*{especialidad}" required >
+						<option th:value="0" >Seleccione...</option>
+						<option th:value="Red">Red</option>
+						<option th:value="Infraestructura">Infraestructura</option>
+						<option th:value="Software">Software</option>  
+						  
+					</select>  
+				<br/>
+			
+	<!-- 			 Para Escalonar:
+					<select class="form-control" id="escalonado" th:field="*{escalonado}" required >
+						<option th:value= null >Seleccione...</option>
+						<option th:value=true>Sí</option>
+						<option th:value=false>No</option>
+						
+					</select>  -->
+							<input class="btn btn-lg btn-primary btn-block" type="submit" value="Aceptar"/>
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					 -->
+					
+				
+				
+			</form>
+			
+				<form action="#" th:action="@{/tecnico/volver}" th:object="${tecnico}" method="post">
+				
+				
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					Anular
+				</button>
+			
+				</form>
+			
+			
+		</div>
+	</div>
+	
+	<script src="/js/validar.js"></script>
+
+</body>
+</html>
