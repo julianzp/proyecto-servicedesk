@@ -8,6 +8,8 @@
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<meta charset="utf-8" />
+	
 
 <!-- Custom styles for this template -->
 <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
@@ -27,14 +29,15 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Documento Usuario</th>
+						<!-- <th>Documento Usuario</th> -->
 						<th>Nombre Usuario</th>
 						<th>Tipo de Incidente</th>
 						<th>Teléfono Usuario</th>
 						<th>Email Usuario</th>
 						<!-- <th>Fecha del Incidente</th> -->
 						<th>Descripción del Incidente</th>
-						<th>Asignar Técnico</th>
+						<th>Técnico Asignado</th>
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -46,6 +49,7 @@
 						<td th:text="${u.emailInci}"></td>
 						<!-- <td th:text="${u.fechaInci}"></td> -->
 						<td th:text="${u.descripcionInci}"></td>
+					
 						
 						<td>
 							
@@ -70,8 +74,8 @@
 			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Reportar Incidente</button>
 		</a>
 		
-		<a href="#" th:href="@{/loginAdmin?logout}">
-			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</button>
+		<a href="#" th:href="@{/}">
+			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Volver a la Página Principal</button>
  
 		</a>
 	</div>
