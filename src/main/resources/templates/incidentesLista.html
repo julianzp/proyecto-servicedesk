@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 
-<title>Administración y Soporte a Clientes</title>
+<title>Administración y Soporte</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
@@ -29,14 +29,14 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<!-- <th>Documento Usuario</th> -->
+						<th>Documento Usuario</th>
 						<th>Nombre Usuario</th>
 						<th>Tipo de Incidente</th>
 						<th>Teléfono Usuario</th>
 						<th>Email Usuario</th>
 						<!-- <th>Fecha del Incidente</th> -->
 						<th>Descripción del Incidente</th>
-						<th>Técnico Asignado</th>
+						<th>Asignar Técnico</th>
 						
 					</tr>
 				</thead>
@@ -60,9 +60,9 @@
 						 
 							
 						
-						 <a href="#" th:href="@{/incidentes/deleteincidentes?idInci=__${u.idInci}__}"> 	
+					<!-- 	 <a href="#" th:href="@{/incidentes/deleteincidentes?idInci=__${u.idInci}__}"> 	
 								<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-						</a> 
+						</a> --> 
 							
 						</td>
 					</tr>
