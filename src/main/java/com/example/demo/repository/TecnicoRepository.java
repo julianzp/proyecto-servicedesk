@@ -15,4 +15,6 @@ public interface TecnicoRepository extends JpaRepository<Tecnico, Serializable>{
 	public abstract Tecnico findByidTecnico(long idTecnico);
 	
 	
+	
+	
 }

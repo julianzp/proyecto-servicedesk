@@ -98,25 +98,31 @@
 <!-- 						<input type="text" id="nom" name="name" placeholder=" Tipo de problema" disabled="" /></br>
  -->       
                             
+                            <tr>
+<!-- 						<input type="text" id="nom" name="name" placeholder=" Tipo de problema" disabled="" ></br>
+ -->       
+							<!-- <input type="text" id="nom" name="name" placeholder=" Tipo de problema" >  -->
+							<td><input type="text" id="nom" name="name" placeholder="Estado del Incidente" disabled=""> 
+							<select id="tipo" th:field="*{estadoInci}">
+									<option th:value="0">Seleccionar opción</option>
+									<option th:value="Reportado">Reportado</option>
+									<option th:value="Escalonado">Escalonado</option>
+									<option th:value="Resuelto">Resuelto</option>
+
+							</select></br></br></td>
+
+						
+						</tr>
+						
+						<tr>
+                            
 							<td><input type="text" id="nom" name="name" placeholder=" Asignar Técnico" disabled="" > 
 							<select id="tipo" th:field="*{tecnico}">
 									<option th:each="tecnicos:${listaTecnico}"
 									th:value="${tecnicos.idTecnico}"
-									th:text="${tecnicos.nombreTecnico}"
-									
-									/>
+									th:text="${tecnicos.nombreTecnico}"/>
 									
 							</select></br></br></td>	
-							
-				<!-- 				<div class="form-group row">
-				<label class="col-md-2" for="ciudad">Ciudad:</label> 
-				<select th:field="*{ciudad}" class="form-control form-control-sm col-md-6" id="ciudad"> 
-					<option th:each="ciudad:${ciudades}"
-						th:value="${ciudad.id}"
-						th:text="${ciudad.ciudad}"		
-					/>					
-				</select>
-			</div>	 -->
 						</tr>
 						
 			

@@ -1,6 +1,5 @@
 package com.example.demo.entity;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -22,46 +21,41 @@ import com.example.demo.entity.Incidentes;
 
 @Entity
 public class Tecnico {
-	
+
 	public Tecnico() {
-		
+
 	}
-	
-	
+
 	@Column
 	private String username;
 
 	@Column
 	private String password;
-	
+
 	@Column
 	private String nombreTecnico;
-	
+
 	@Column
 	private String apellidosTecnico;
-	
+
 	@Column
 	private String docTecnico;
 
-	
 	@Id
 	@GeneratedValue
 	@Column(name = "idTecnico")
 	private long idTecnico;
-	
+
 	@Column
 	private String especialidad;
-	
-	@OneToMany(mappedBy = "tecnico", cascade = CascadeType.ALL)
-	//@JoinColumn(name = "idIncidente")
-	List<Incidentes> incidentes = new ArrayList<>();
-	
 
-	
+	@OneToMany(mappedBy = "tecnico", cascade = CascadeType.ALL)
+	// @JoinColumn(name = "idIncidente")
+	List<Incidentes> incidentes = new ArrayList<>();
+
 	@OneToOne
 	@JoinColumn(name = "id_esta_escalonada")
-    private Escalonada escalonada;
-	
+	private Escalonada escalonada;
 
 	public long getIdTecnico() {
 		return idTecnico;
@@ -78,9 +72,6 @@ public class Tecnico {
 	public void setEspecialidad(String especialidad) {
 		this.especialidad = especialidad;
 	}
-
-	
-
 
 	public Escalonada getEscalonada() {
 		return escalonada;
@@ -104,12 +95,7 @@ public class Tecnico {
 
 	public void setPassword(String password) {
 		this.password = password;
-}
-	
-	
-	
-
-	
+	}
 
 	public List<Incidentes> getIncidentes() {
 		return incidentes;
@@ -142,6 +128,30 @@ public class Tecnico {
 	public void setDocTecnico(String docTecnico) {
 		this.docTecnico = docTecnico;
 	}
+	
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (idTecnico ^ (idTecnico >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Tecnico other = (Tecnico) obj;
+		if (idTecnico != other.idTecnico)
+			return false;
+		return true;
+	}
 
 	public Tecnico(String username, String password, String nombreTecnico, String apellidosTecnico, String docTecnico,
 			long idTecnico, String especialidad, List<Incidentes> incidentes, Escalonada escalonada) {
@@ -163,25 +173,11 @@ public class Tecnico {
 	 * this.username = username2; this.password = password2; }
 	 */
 
-
-
 	@Override
 	public String toString() {
 		return "Tecnico [username=" + username + ", password=" + password + ", nombreTecnico=" + nombreTecnico
 				+ ", apellidosTecnico=" + apellidosTecnico + ", docTecnico=" + docTecnico + ", idTecnico=" + idTecnico
 				+ ", especialidad=" + especialidad + ", incidentes=" + incidentes + ", escalonada=" + escalonada + "]";
 	}
-	
-	
 
-
-	
-
-
-
-
-	
-	
-	
-	
 }

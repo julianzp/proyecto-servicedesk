@@ -50,12 +50,15 @@ public class Incidentes {
 	//private Calendar fechaInci;
 	
 	
-	@Column(name = "descripcionInci", columnDefinition = "TEXT")
+	@Column(name = "descripcionInci")
 	private String descripcionInci;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name= "tecnico")
 	private Tecnico tecnico;
+	
+	@Column(name = "estadoInci")
+	private String estadoInci;
 
 
 
@@ -147,10 +150,56 @@ public class Incidentes {
 	public void setTecnico(Tecnico tecnico) {
 		this.tecnico = tecnico;
 	}
+	
+	
 
 
+	
+	
+	public String getEstadoInci() {
+		return estadoInci;
+	}
+
+
+	public void setEstadoInci(String estadoInci) {
+		this.estadoInci = estadoInci;
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idInci;
+		result = prime * result + ((tecnico == null) ? 0 : tecnico.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Incidentes other = (Incidentes) obj;
+		if (idInci != other.idInci)
+			return false;
+		if (tecnico == null) {
+			if (other.tecnico != null)
+				return false;
+		} else if (!tecnico.equals(other.tecnico))
+			return false;
+		return true;
+	}
+
+
+
+	
 	public Incidentes(int idInci, int docInci, String nombreInci, String tipoInci, int telefonoInci, String emailInci,
-			long fechaInci, String descripcionInci, Tecnico tecnico) {
+			long fechaInci, String descripcionInci, Tecnico tecnico, String estadoInci) {
 		super();
 		this.idInci = idInci;
 		this.docInci = docInci;
@@ -161,19 +210,15 @@ public class Incidentes {
 		this.fechaInci = fechaInci;
 		this.descripcionInci = descripcionInci;
 		this.tecnico = tecnico;
+		this.estadoInci = estadoInci;
 	}
-	
+
+
 	public Incidentes() {
 		
 	}
 
 
-	@Override
-	public String toString() {
-		return "Incidentes [idInci=" + idInci + ", docInci=" + docInci + ", nombreInci=" + nombreInci + ", tipoInci="
-				+ tipoInci + ", telefonoInci=" + telefonoInci + ", emailInci=" + emailInci + ", fechaInci=" + fechaInci
-				+ ", descripcionInci=" + descripcionInci + ", tecnico=" + tecnico + "]";
-	}
 	
 	
 }

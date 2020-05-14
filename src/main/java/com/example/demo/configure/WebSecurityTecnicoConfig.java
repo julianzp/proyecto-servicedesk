@@ -43,7 +43,7 @@ public class WebSecurityTecnicoConfig extends WebSecurityConfigurerAdapter{
             .formLogin()
                 .loginPage("/loginUser")
                 .failureUrl("/loginUser?error=true")
-                .defaultSuccessUrl("/incidentes/reportes?idInci=0")
+                .defaultSuccessUrl("/incidentes/listadoincidentestecnico")
                 //.usernameParameter("username")
                 //.passwordParameter("password")
                 .and()

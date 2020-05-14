@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Reportar Incidente</title>
+<title>Resolver Incidente</title>
 
 <link th:href="@{/Css/estilo.css}" rel="stylesheet" />
 
@@ -18,7 +18,7 @@
           <a href="principal.html" style="position: relative;
   		right: 100px;">Atrás</a>
   		-->
-			<h2 class="active">Reportar INCIDENTE</h2>
+			<h2 class="active">Resolver el Incidente</h2>
 
 			<!-- Icon -->
 			<div class="fadeIn first">
@@ -31,19 +31,16 @@
 
 			<!-- Form -->
 			<form action="#" th:action="@{/incidentes/addincidentes}"
-				th:object="${incidentes}" method="post">
+				th:object="${incidentes}"   method="post">
 
-
-				
 				<fieldset>
-
 
 					<table>
 
-							<tr>
+						<tr>
 							<input type="hidden" th:field="*{idInci}">
 							</tr>
-							
+
 						<tr>
 							<td><input  type="text" onKeyPress="return soloNumeros(event)"  placeholder="Documento" id="doc"  name="doc" class="fadeIn second"
 								th:field="*{docInci}" th:value="${docInci}" required title="Utiliza el formato adecuado"></br></td> 								
@@ -57,12 +54,12 @@
 						</tr>
 						
 						<tr>
-<!-- 						<input type="text" id="nom" name="name" placeholder=" Tipo de problema" disabled="" ></br>
+<!-- 						<input type="text" id="nom" name="name" placeholder=" Tipo de problema" disabled="" /></br>
  -->       
 							<!-- <input type="text" id="nom" name="name" placeholder=" Tipo de problema" >  -->
-							<td><input type="text" id="nom" name="name" placeholder="Tipo de Problema" disabled=""> 
+							<td><input type="text" id="nom" name="name" placeholder=" Tipo de Problema" disabled="" > 
 							<select id="tipo" th:field="*{tipoInci}">
-									<option th:value="0">Seleccionar opción</option>
+									<option th:value="0" disabled>Seleccionar opción</option>
 									<option th:value="Red">problema de red</option>
 									<option th:value="Infraestructura">problema
 										infraestructura</option>
@@ -89,23 +86,6 @@
 						</tr>
 						
 						<tr>
-					
-    
-						
-							<td><input type="text" id="nom" name="name" placeholder="Estado del Incidente" disabled=""> 
-							<select id="tipo" th:field="*{estadoInci}">
-									<option th:value="0">Seleccionar opción</option>
-									<option th:value="Reportado">Reportado</option>
-									<option th:value="Escalonado">Escalonado</option>
-									<option th:value="Resuelto">Resuelto</option>
-
-							</select></br></br></td>
-
-						
-						</tr> 
-						
-						
-						<tr>
 
 							<td><textarea id="descripcion" rows="5" name="message"
 									placeholder="ingrese descripción" th:field="*{descripcionInci}"
@@ -114,8 +94,39 @@
 							</td>
 						</tr>
 						
-		
+						<tr>
+<!-- 						<input type="text" id="nom" name="name" placeholder=" Tipo de problema" disabled="" /></br>
+ -->       
+                            
+                            <tr>
+<!-- 						<input type="text" id="nom" name="name" placeholder=" Tipo de problema" disabled="" ></br>
+ -->       
+							<!-- <input type="text" id="nom" name="name" placeholder=" Tipo de problema" >  -->
+							<td><input type="text" id="nom" name="name" placeholder="Estado del Incidente" disabled=""> 
+							<select id="tipo" th:field="*{estadoInci}">
+									<option th:value="0">Seleccionar opción</option>
+									<!-- <option th:value="Reportado">Reportado</option>
+									<option th:value="Escalonado">Escalonado</option> -->
+									<option th:value="Resuelto">Resuelto</option>
+
+							</select></br></br></td>
+
 						
+			
+							
+				<!-- 				<div class="form-group row">
+				<label class="col-md-2" for="ciudad">Ciudad:</label> 
+				<select th:field="*{ciudad}" class="form-control form-control-sm col-md-6" id="ciudad"> 
+					<option th:each="ciudad:${ciudades}"
+						th:value="${ciudad.id}"
+						th:text="${ciudad.ciudad}"		
+					/>					
+				</select>
+			</div>	 -->
+						</tr>
+						
+			
+												
 						<tr>
 							<td><input type="submit" class="fadeIn fourth"
 								value="Reportar" accesskey="f2"></br></td>
@@ -123,30 +134,12 @@
 
 					</table>
 				</fieldset>
-		<!-- 		
-		<form >
-      <input onKeyPress="return soloNumeros(event)" type="text"  id="doc" class="fadeIn second" name="doc" placeholder="Documento" required title="Utiliza el formato adecuado" ></br>
-      <input type="text" id="nom" name="name" placeholder=" Nombre" class="correo" /></br>
-      <input type="text" id="nom" name="name" placeholder=" Tipo de problema" disabled="" /></br>
-       <select id="tipo"  size="">
-                      <option>Seleccionar opción</option>
-                          <option>problema de red</option>
-                          <option>problema infraestructura</option>
-                          <option>problema interno</option>
 
-                      </select></br></br>
-                      <input class="tel" type="text" id="doc" name="name" placeholder="Telefono"  onKeyPress="return soloNumeros(event)" maxlength="10" />
-                    <input class="fecha" type="date" id="doc" name="name"  onKeyPress="return soloNumeros(event)" maxlength="10" />
-
-      <input   type="email"  id="correo" class="fadeIn third" name="correo" placeholder="Email" required ></br>
-       <textarea id="descripcion" rows="5" name="message"   placeholder="ingrese descripción"  style="width: 300px;" ></textarea>
-      <input type="submit" class="fadeIn fourth" value="Reportar" onclick="validar()"  accesskey="f2" ></br> -->
-      
-     
-		
     </form>
     
- <a href="#" th:href="@{/incidentes/listadoincidentes}">
+   
+    
+ <a href="#" th:href="@{/incidentes/listadoincidentestecnico}">
 			<button class="fadeIn fourth" accesskey="f2" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Volver </button>
  
 		</a>
