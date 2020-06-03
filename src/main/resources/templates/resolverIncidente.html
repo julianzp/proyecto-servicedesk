@@ -103,13 +103,37 @@
  -->       
 							<!-- <input type="text" id="nom" name="name" placeholder=" Tipo de problema" >  -->
 							<td><input type="text" id="nom" name="name" placeholder="Estado del Incidente" disabled=""> 
-							<select id="tipo" th:field="*{estadoInci}">
+							<select id="tipo" th:field="*{estadoInci}" th:each="estado:${incidentes}">
+							   
+							   	<!-- 	<option th:each="estado:${incidentes}"></option> -->
 									<option th:value="0">Seleccionar opción</option>
 									<!-- <option th:value="Reportado">Reportado</option>
 									<option th:value="Escalonado">Escalonado</option> -->
+									<option th:value="Escalonado"
+									th:if="${estado.estadoInci != 'Escalonado'}">Escalonado</option>
 									<option th:value="Resuelto">Resuelto</option>
+                            
+						<!-- <tr th:each=" u : ${incidentesLista}"> -->
 
 							</select></br></br></td>
+							
+							<tr>
+
+							<td><textarea id="descripción del Call Center" rows="5" name="message"
+									placeholder="ingrese descripción del Problema" th:field="*{callCenterDescripInci}"
+									th:value="${callCenterDescripInci}" style="width: 300px;"></textarea>
+																		
+							</td>
+						</tr>
+						
+						<tr>
+
+							<td><textarea id="solucion" rows="5" name="message"
+									placeholder="ingrese descripción de la Solución" th:field="*{descripSolucionInci}"
+									th:value="${descripSolucionInci}" style="width: 300px;"></textarea>
+																		
+							</td>
+						</tr>
 
 						
 			
@@ -124,6 +148,17 @@
 				</select>
 			</div>	 -->
 						</tr>
+						
+					<!-- 	<tr>
+                            
+							<td><input type="text" id="nom" name="name" placeholder=" Asignar Técnico" disabled="" > 
+							<select id="tipo" th:field="*{tecnico}">
+									<option th:each="tecnicos:${listaTecnico}"
+									th:value="${tecnicos.idTecnico}"
+									th:text="${tecnicos.nombreTecnico}"/>
+									
+							</select></br></br></td>	
+						</tr> -->
 						
 			
 												

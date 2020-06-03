@@ -95,6 +95,24 @@
 						</tr>
 						
 						<tr>
+
+							<td><textarea id="descripción del Call Center" rows="5" name="message"
+									placeholder="ingrese descripción del Problema" th:field="*{callCenterDescripInci}"
+									th:value="${callCenterDescripInci}" style="width: 300px;"></textarea>
+																		
+							</td>
+						</tr>
+						
+						<tr>
+
+							<td><textarea id="solucion" rows="5" name="message"
+									placeholder="ingrese descripción de la Solución" th:field="*{descripSolucionInci}"
+									th:value="${descripSolucionInci}" style="width: 300px;"></textarea>
+																		
+							</td>
+						</tr>
+						
+						<tr>
 <!-- 						<input type="text" id="nom" name="name" placeholder=" Tipo de problema" disabled="" /></br>
  -->       
                             
@@ -104,10 +122,10 @@
 							<!-- <input type="text" id="nom" name="name" placeholder=" Tipo de problema" >  -->
 							<td><input type="text" id="nom" name="name" placeholder="Estado del Incidente" disabled=""> 
 							<select id="tipo" th:field="*{estadoInci}">
-									<option th:value="0">Seleccionar opción</option>
+									<!-- <option th:value="0">Seleccionar opción</option> -->
 									<option th:value="Reportado">Reportado</option>
-									<option th:value="Escalonado">Escalonado</option>
-									<option th:value="Resuelto">Resuelto</option>
+									<!-- <option th:value="Asignado">Asignado</option>
+									<option th:value="Resuelto">Resuelto</option> -->
 
 							</select></br></br></td>
 

@@ -39,9 +39,10 @@ public class Incidentes {
 	@Column(name = "telefonoInci")
 	private int telefonoInci;
 	
-	@Column(name = "emailInci")
-	private String emailInci;
 	
+	  @Column(name = "emailInci") 
+	  private String emailInci;
+	 
 	  private long fechaInci;
 	 
 	//= System.currentTimeMillis();
@@ -52,6 +53,12 @@ public class Incidentes {
 	
 	@Column(name = "descripcionInci")
 	private String descripcionInci;
+	
+	@Column(name = "callCenterDescripInci")
+	private String callCenterDescripInci;
+	
+	@Column(name = "descripSolucionInci")
+	private String descripSolucionInci;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name= "tecnico")
@@ -140,8 +147,29 @@ public class Incidentes {
 	}
 
 	
+	
 
 	
+	public String getCallCenterDescripInci() {
+		return callCenterDescripInci;
+	}
+
+
+	public void setCallCenterDescripInci(String callCenterDescripInci) {
+		this.callCenterDescripInci = callCenterDescripInci;
+	}
+
+
+	public String getDescripSolucionInci() {
+		return descripSolucionInci;
+	}
+
+
+	public void setDescripSolucionInci(String descripSolucionInci) {
+		this.descripSolucionInci = descripSolucionInci;
+	}
+
+
 	public Tecnico getTecnico() {
 		return tecnico;
 	}
@@ -197,9 +225,11 @@ public class Incidentes {
 
 
 
-	
+
+
 	public Incidentes(int idInci, int docInci, String nombreInci, String tipoInci, int telefonoInci, String emailInci,
-			long fechaInci, String descripcionInci, Tecnico tecnico, String estadoInci) {
+			long fechaInci, String descripcionInci, String callCenterDescripInci, String descripSolucionInci,
+			Tecnico tecnico, String estadoInci) {
 		super();
 		this.idInci = idInci;
 		this.docInci = docInci;
@@ -209,6 +239,8 @@ public class Incidentes {
 		this.emailInci = emailInci;
 		this.fechaInci = fechaInci;
 		this.descripcionInci = descripcionInci;
+		this.callCenterDescripInci = callCenterDescripInci;
+		this.descripSolucionInci = descripSolucionInci;
 		this.tecnico = tecnico;
 		this.estadoInci = estadoInci;
 	}
