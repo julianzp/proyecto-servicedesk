@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Reportar Incidente</title>
+
+<link th:href="@{/Css/estilo.css}" rel="stylesheet" />
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+</head>
+
+<body bgcolor=#DBDFE0>
+	<div class="wrapper fadeInDown">
+		<div id="formContent">
+			<!-- Tabs Titles -->
+
+			<!--   
+          <a href="principal.html" style="position: relative;
+  		right: 100px;">Atrás</a>
+  		-->
+			<h2 class="active">Reportar INCIDENTE</h2>
+
+			<!-- Icon -->
+			<div class="fadeIn first">
+				<!-- <img src="src/main/resources/static/image/imagen.png" alt=""> -->
+				
+				<!-- <img th:src="@{/resources/image/imagen.png}" /> -->
+				
+				<!-- <img src="../static/image/imagen.jpg"  th:src="@{image/imagen.jpg}"/> -->
+			</div>
+
+			<!-- Form -->
+			<form action="#" th:action="@{/incidentes/addincidentes}"
+				th:object="${incidentes}" method="post">
+
+
+				
+				<fieldset>
+
+
+					<table>
+
+							<tr>
+							<input type="hidden" th:field="*{idInci}">
+							</tr>
+							
+						<tr>
+							<td><input  type="text" onKeyPress="return soloNumeros(event)"  placeholder="Documento" id="doc"  name="doc" class="fadeIn second"
+								th:field="*{docInci}" th:value="${docInci}" required title="Utiliza el formato adecuado"></br></td> 								
+						</tr>
+						
+						<tr>
+							<td><input type="text" placeholder=" Nombre" id="nom" name="name"
+								th:field="*{nombreInci}" th:value="${nombreInci}" class="correo"></br>
+							</td>
+							
+						</tr>
+						
+						<tr>
+<!-- 						<input type="text" id="nom" name="name" placeholder=" Tipo de problema" disabled="" ></br>
+ -->       
+							<!-- <input type="text" id="nom" name="name" placeholder=" Tipo de problema" >  -->
+							<td><input type="text" id="nom" name="name" placeholder="Tipo de Problema" disabled=""> 
+							<select id="tipo" th:field="*{tipoInci}">
+									<option th:value="0">Seleccionar opción</option>
+									<option th:value="Red">problema de red</option>
+									<option th:value="Infraestructura">problema
+										infraestructura</option>
+									<option th:value="Interno">problema interno</option>
+
+							</select></br></br></td>
+
+						
+						</tr>
+						
+
+						<tr>
+							<td><input class="tel" type="text" id="doc" name="name"
+								placeholder="Telefono" th:field="*{telefonoInci}"
+								th:value="${telefonoInci}" onKeyPress="return soloNumeros(event)" maxlength="10" /></td>
+															
+						</tr>
+
+					
+						<tr>
+							<td><input type="email" id="correo" class="fadeIn third"
+								name="correo" placeholder="Email" th:field="*{emailInci}"
+								th:value="${emailInci}" required></td>
+						</tr>
+						
+						<tr>
+					
+    
+						
+							<td><input type="text" id="nom" name="name" placeholder="Estado del Incidente" disabled=""> 
+							<select id="tipo" th:field="*{estadoInci}">
+									<!-- <option th:value="0">Seleccionar opción</option> -->
+									<option th:value="Reportado">Reportado</option>
+									<!-- <option th:value="Asignado">Asignado</option>
+									<option th:value="Resuelto">Resuelto</option> -->
+
+							</select></br></br></td>
+
+						
+						</tr> 
+						
+						
+						<tr>
+
+							<td><textarea id="descripción del Usuario" rows="5" name="message"
+									placeholder="ingrese descripción" th:field="*{descripcionInci}"
+									th:value="${descripcionInci}" style="width: 300px;"></textarea>
+																		
+							</td>
+						</tr>
+						
+						<tr>
+
+							<td><textarea id="descripción del Call Center" rows="5" name="message"
+									placeholder="ingrese descripción del Problema" th:field="*{callCenterDescripInci}"
+									th:value="${callCenterDescripInci}" style="width: 300px;"></textarea>
+																		
+							</td>
+						</tr>
+			
+							<tr>
+
+							<td><textarea id="solucion" rows="5" name="message"
+									placeholder="ingrese descripción de la Solución" th:field="*{descripSolucionInci}"
+									th:value="${descripSolucionInci}" style="width: 300px;"></textarea>
+																		
+							</td>
+						</tr>
+
+						
+		
+						
+						<tr>
+							<td><input type="submit" class="fadeIn fourth"
+								value="Reportar" accesskey="f2"></br></td>
+						</tr>
+
+					</table>
+				</fieldset>
+		<!-- 		
+		<form >
+      <input onKeyPress="return soloNumeros(event)" type="text"  id="doc" class="fadeIn second" name="doc" placeholder="Documento" required title="Utiliza el formato adecuado" ></br>
+      <input type="text" id="nom" name="name" placeholder=" Nombre" class="correo" /></br>
+      <input type="text" id="nom" name="name" placeholder=" Tipo de problema" disabled="" /></br>
+       <select id="tipo"  size="">
+                      <option>Seleccionar opción</option>
+                          <option>problema de red</option>
+                          <option>problema infraestructura</option>
+                          <option>problema interno</option>
+
+                      </select></br></br>
+                      <input class="tel" type="text" id="doc" name="name" placeholder="Telefono"  onKeyPress="return soloNumeros(event)" maxlength="10" />
+                    <input class="fecha" type="date" id="doc" name="name"  onKeyPress="return soloNumeros(event)" maxlength="10" />
+
+      <input   type="email"  id="correo" class="fadeIn third" name="correo" placeholder="Email" required ></br>
+       <textarea id="descripcion" rows="5" name="message"   placeholder="ingrese descripción"  style="width: 300px;" ></textarea>
+      <input type="submit" class="fadeIn fourth" value="Reportar" onclick="validar()"  accesskey="f2" ></br> -->
+      
+     
+		
+    </form>
+    
+ <a href="#" th:href="@{/incidentes/listadoincidentes}">
+			<button class="fadeIn fourth" accesskey="f2" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Volver </button>
+ 
+		</a>
+         	
+		</div>
+	</div>
+
+
+	<script src="/js/script.js"></script>
+</body>
+</html>

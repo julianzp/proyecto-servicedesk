@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+
+<title>Administración y Soporte</title>
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<meta charset="utf-8" />
+	
+
+<!-- Custom styles for this template -->
+<link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+
+<link href="#" th:href="@{/css/contacts.css}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<h1></h1>
+		<br />
+		<div class="panel panel-default">
+			<div class="panel-heading"></div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Documento Usuario</th>
+						<th>Nombre Usuario</th>
+						<th>Tipo de Incidente</th>
+						<th>Teléfono Usuario</th>
+						<th>Email Usuario</th>
+						<th>Estado del Incidente</th>
+						<th>Descripción del Incidente</th>
+						<th>Descripción del Problema</th>
+						<th>Solución</th>
+						<th>Resolver Incidente</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each=" u : ${incidentesTecnico}">
+						<td th:text="${u.docInci}"></td>
+						<td th:text="${u.nombreInci}"></td>
+						<td th:text="${u.tipoInci}"></td>
+						<td th:text="${u.telefonoInci}"></td>
+						<td th:text="${u.emailInci}"></td>
+						<td th:text="${u.estadoInci}"></td> 
+						<td th:text="${u.descripcionInci}"></td>
+						<td th:text="${u.callCenterDescripInci}"></td>
+						<td th:text="${u.descripSolucionInci}"></td>
+					
+						
+						<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}">Incidentes Por Resolver</a>
+			</div>
+		</div>
+	</nav>
+						
+						<td>
+							
+						
+					       <a href="#" th:href="@{/incidentes/resolverInci?idInci=__${u.idInci}__}"> 
+								<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></button>
+						 </a>  
+					 
+				
+						
+						<!--  <a href="#" th:href="@{/incidentes/deleteincidentes?idInci=__${u.idInci}__}"> 	
+								<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+						</a> --> 
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	<!-- 	<a href="#" th:href="@{/incidentes/reportes?idInci=0}">
+			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Reportar Incidente</button>
+		</a> -->
+		
+		<a href="#" th:href="@{/logout}">
+			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Logout</button>
+ 
+		</a>
+	</div>
+
+</body>
+</html>

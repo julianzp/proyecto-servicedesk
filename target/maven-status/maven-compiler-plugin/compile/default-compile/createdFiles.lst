@@ -1,0 +1,9 @@
+com\example\demo\entity\Clientes.class
+com\example\demo\service\Impl\ClientesServiceImpl.class
+com\example\demo\model\Credenciales.class
+com\example\demo\service\ClientesService.class
+com\example\demo\repository\ClientesRepository.class
+com\example\demo\controller\loginController.class
+com\example\demo\Proyecto1Application.class
+com\example\demo\controller\ClientesController.class
+com\example\demo\ServletInitializer.class

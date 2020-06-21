@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+
+<title>Crear un Cliente </title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs..."></script>
+<script src="https://maxcdn.bootstrapcdn.com/boots..."></script>
+
+<link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+ 
+</head>
+<body>
+
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Formulario de Clientes</h1>
+			<br />
+			<form action="#" th:action="@{/clientes/addclientes}" th:object="${clientes}" method="post" onsubmit="return validar();">
+				
+				
+				  
+				  <input type="hidden" th:field="*{idCli}">
+				  
+				 
+				
+				
+				Nombre: <input type="text" id="nombreCli" class="form-control" th:field="*{nombreCli}" th:value="${nombreCli}" required></input> 
+				<br/>
+				Apellidos: <input type="text" id="apellidoCli" class="form-control" th:field="*{apellidoCli}" th:value="${apellidoCli}" required ></input> 
+				<br/>
+				 Ciudad: 
+					 <select class="form-control" id="ciudadCli" th:field="*{ciudadCli}" required >
+						<option th:value="0" >Seleccione...</option>
+						<option th:value="Bogotá">Bogotá</option>
+						<option th:value="Medellín">Medellín</option>
+						<option th:value="Cali">Cali</option>  
+						<option th:value="Bucaramanga">Bucaramanga</option>
+						<option th:value="Cúcuta">Cúcuta</option>
+						<option th:value="Barranquilla">Barranquilla</option>    
+					</select> 
+				<br/>
+				Numero de Documento: <input type="text" id="docCli" class="form-control" th:field="*{docCli}" th:value="${docCli}" required></input> 
+				<br/> 
+				Tipo de Documento:
+					<select class="form-control" id="tipoDocCli" th:field="*{tipoDocCli}" required >
+						<option th:value="0" >Seleccione...</option>
+						<option th:value="CC">CC - Cedula de ciudadanía</option>
+						<option th:value="CE">CE - Cedula de extranjería</option>
+						<option th:value="TI">TI - Tarjeta de identidad</option>  
+						<option th:value="RC">RC - Registro Civil</option>
+					</select> 
+				<!--  
+				Tipo de Documento: <input type="text" class="form-control" th:field="*{tipoDocCli}" th:value="${tipoDocCli}"></input>
+				--> 
+				<br/> 
+				<input type="file" th:field="*{foto64}" class="custom-file-input" id="customFile" required>
+                <label class="custom-file-label" for="customFile">Seleccione una imagen.</label>
+				
+				<br /> 
+				<img th:src="${clientes.foto64}" width="50%" style="display:block;margin:auto;"/>
+				<br />
+				<input class="btn btn-lg btn-primary btn-block" type="submit" value="Aceptar"/>
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					
+					
+				
+				
+			</form>
+			
+				<form action="#" th:action="@{/clientes/volver}" th:object="${clientes}" method="post">
+				
+				
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					Anular
+				</button>
+			
+				</form>
+			
+			
+		</div>
+	</div>
+	
+	<script src="/js/validar.js"></script>
+
+</body>
+</html>
